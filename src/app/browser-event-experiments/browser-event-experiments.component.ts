@@ -6,10 +6,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./browser-event-experiments.component.css']
 })
 export class BrowserEventExperimentsComponent implements OnInit {
+  hoverSection: HTMLElement;
 
   constructor() { }
 
   ngOnInit() {
+    this.hoverSection = document.getElementById('hover');
+    this.hoverSection.addEventListener('mousemove', this.onMouseMove);
+  }
+
+  unsubscribe() {
+    console.log('unsubscribe'); 
+    this.hoverSection.removeEventListener('mousemove', this.onMouseMove);
+  }
+
+  onMouseMove(ev: MouseEvent) {
+    console.log(ev);
+    
   }
 
 }
