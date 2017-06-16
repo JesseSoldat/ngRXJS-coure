@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import * as _ from 'lodash';
 import { Lesson } from './../shared/model/lesson';
 import { globalEventBus, Observer, LESSONS_LIST_AVAILABLE, ADD_NEW_LESSON } from './../event-bus-experiments/event-bus';
 
@@ -52,9 +52,14 @@ export class LessonsListComponent implements OnInit, Observer {
     lesson.completed = !lesson.completed;
   }
 
+  delete(deleted: Lesson) {
+    //app breaks here because the lessons list has its own copy of lessons seperate from the server
+    _.remove(this.lessons, lesson => lesson.id === deleted.id)
+  }
 
-
-  select() {}
+  select() {
+    
+  }
 
 }
 
