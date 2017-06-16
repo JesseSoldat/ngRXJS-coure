@@ -1,10 +1,12 @@
-<table class="table lessons-list card card-strong">
+<table class="table lessons-list card card-strong"
+ *ngIf="lessons; else loadingLessons;">
   <tbody>
-    <tr>
-      <td class="lesson-title"></td>
+    <tr *ngFor="let lesson of lessons"
+    (click)="select(lesson)">
+      <td class="lesson-title">{{lesson.description}}</td>
       <td class="duration">
         <i class="md-icon duration-icon">access_time</i>
-        <span></span>
+        <span>{{lesson.duration}}</span>
       </td>
     </tr>
   </tbody>

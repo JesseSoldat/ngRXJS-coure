@@ -2,6 +2,7 @@
 
 ng new --skip-install reactive-patterns-course
 
+yarn add @types/lodash
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.4.
 
