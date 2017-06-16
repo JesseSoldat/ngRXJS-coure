@@ -42,11 +42,13 @@ export class LessonsListComponent implements OnInit, Observer {
   notify(data: Lesson[]) {
     console.log('lessons list component received data');
     // console.log(data);
-    this.lessons = data;
+    //we don't want a ref to the data otherwise when the set timeout fires only this component would update its lessons array
+    //this.lessons = data;
+    this.lessons = data.slice(0);
+    
   }
 
   toggleLessonViewed(lesson: Lesson) {
-    console.log('toggling lesson ...');
     lesson.completed = !lesson.completed;
   }
 
