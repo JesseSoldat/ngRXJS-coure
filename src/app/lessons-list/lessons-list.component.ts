@@ -14,6 +14,7 @@ export class LessonsListComponent implements OnInit, Observer {
   constructor() {
     console.log('lesson list is registered as a listener ');
     globalEventBus.registerObserver(LESSONS_LIST_AVAILABLE, this);
+
     globalEventBus.registerObserver(ADD_NEW_LESSON, {
       notify: lessonText => {
         this.lessons.push({
@@ -25,8 +26,7 @@ export class LessonsListComponent implements OnInit, Observer {
     });
    }
 
-  ngOnInit() {
-              
+  ngOnInit() {          
   }
 
   createDuration() {
@@ -41,10 +41,16 @@ export class LessonsListComponent implements OnInit, Observer {
 
   notify(data: Lesson[]) {
     console.log('lessons list component received data');
-    console.log(data);
+    // console.log(data);
     this.lessons = data;
-    
   }
+
+  toggleLessonViewed(lesson: Lesson) {
+    console.log('toggling lesson ...');
+    lesson.completed = !lesson.completed;
+  }
+
+
 
   select() {}
 

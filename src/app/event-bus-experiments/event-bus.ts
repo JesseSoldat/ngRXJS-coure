@@ -30,7 +30,6 @@ class EventBus implements Subject {
 
     notifyObservers(eventType:string, data: any) {
         console.log(eventType, data);
-      
         this.observersPerEventType(eventType).forEach(obs => obs.notify(data));
     }
 

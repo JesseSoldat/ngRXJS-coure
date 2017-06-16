@@ -19,7 +19,7 @@ export class EventBusExperimentsComponent implements OnInit {
   }
 
   addLesson(lessonText: string) {
-    console.log(lessonText); 
+    // console.log(lessonText); 
     globalEventBus.notifyObservers(ADD_NEW_LESSON, lessonText);
   }
 

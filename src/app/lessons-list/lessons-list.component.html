@@ -3,7 +3,12 @@
   <tbody>
     <tr *ngFor="let lesson of lessons"
     (click)="select(lesson)">
-      <td class="lesson-title">{{lesson.description}}</td>
+      <td class="viewed">
+        <input type="checkbox" (click)="toggleLessonViewed(lesson)">
+      </td>
+      <td class="lesson-title"
+        [ngClass]="{'lesson-viewed': lesson.completed}"
+      >{{lesson.description}}</td>
       <td class="duration">
         <i class="md-icon duration-icon">access_time</i>
         <span>{{lesson.duration}}</span>

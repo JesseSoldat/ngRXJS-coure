@@ -23,7 +23,7 @@ export class LessonsCounterComponent implements OnInit {
 
   notify(data: Lesson[]) {
     console.log('counter component received data');    
-    console.log(data);
+    // console.log(data);
     this.lessonsCounter = data.length;
   }
 
